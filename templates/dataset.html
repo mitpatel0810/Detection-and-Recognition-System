@@ -1,0 +1,84 @@
+<html>
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Image Recognition | AI Course-work{% endblock %}
+{% block content %}
+<head>
+  <style>
+    .left{
+      text-align:center;
+      width:40%;
+      display:inline-block;
+      float:left;
+      padding-left:25px;
+
+    }
+    .right{
+    padding-top: 60px;
+    float:right;
+      display:inline;
+    width:55%;
+
+    }
+    .color{
+    font-size:1.3em;
+    font-weight:bolder;
+    display:inline;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div style="padding-bottom: 2em;text-align:center">
+    <h1 class="text-center" style="color:#047c2a">ALL REGISTERED STUDENT</h1>
+
+  </div>
+
+  <!-- <ul>
+    <li>{{record.first_name}} {{record.last_name}}</li>
+    <li>{{record.occupation}}</li>
+    <li>{{record.residence}}, {{record.country}}</li>
+  </ul> -->
+  <div class="container">
+    <div class="row">
+      {% for record in id %}
+      <div class="col-md-10 col-md-offset-1" style="padding-top:3em;padding-bottom:3em;-webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+-moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.5);">
+
+
+
+              <div class="left">
+              <h3 style="color:#d18f02"><b>{{record.first_name}} {{record.last_name}}</b></h3>
+              <img src="{{record.image}}" class="img-responsive" style="border-radius:50%">
+              </div>
+              <div class="right">
+              <h5><p class="color">Education: </p> {{record.education}} </h5>
+              <h5><p class="color">Occupation: </p> {{record.occupation}} </h5>
+              <h5><p class="color">Residence: </p> {{record.residence}}, {{record.country}}</h5>
+              <h5><p class="color">Marital status: </p> {{record.marital_status}}</h5>
+              <h5><p class="color">Date Recorded in System: </p> {{record.recorded_at}}</h5>
+             <h5><p class="color">Bio: </p> {{record.bio}}</h5>
+                  <h5><p class="color">Last Visisted: </p>{{record.last_visit}} </h5>
+                  <h5><p class="color">Total Visits: </p> {{record.visits}}</h5>
+              </div>
+
+
+
+
+
+
+
+      </div>
+      {%endfor%}
+      <div class="col-md-12" style="margin-top:2em">
+          <a href="/" class="btn btn-warning"><i class="fa fa-chevron-left" aria-hidden="true"></i> Home</a>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>
